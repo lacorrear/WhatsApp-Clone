@@ -1,0 +1,5 @@
+<p class="chat__message" [ngClass]="{ chat__myMessage: isMymessage }">
+  <span class="chat__chatName">{{ userName }}</span>
+  {{ message }}
+  <span class="chat__timestamp"> {{ timestamp | date: "shortTime" }}</span>
+</p>

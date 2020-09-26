@@ -1,0 +1,11 @@
+<div class="login">
+  <div class="login__container">
+    <img [src]="urlImageWS" alt="" />
+    <div class="login__text">
+      <h1>Sign in to WhatsApp</h1>
+    </div>
+    <button (click)="_authService.login()" mat-raised-button color="warn">
+      Sign In With Google
+    </button>
+  </div>
+</div>

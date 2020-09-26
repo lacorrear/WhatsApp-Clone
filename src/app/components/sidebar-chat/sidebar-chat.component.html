@@ -1,0 +1,12 @@
+<div *ngIf="!addNewChat" class="sidebarChat">
+  <img class="icon" [src]="imageUrl" alt="my icon" />
+  <div class="sidebarChat__info">
+    <h2>{{ roomName }}</h2>
+    <!-- TODO put gary color in the last message text -->
+    <p style="color: gray">{{ lastMessage }}</p>
+  </div>
+</div>
+
+<div *ngIf="addNewChat" class="sidebarChat">
+  <h2><b> Add new Chat</b></h2>
+</div>

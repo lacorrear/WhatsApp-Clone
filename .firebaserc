@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "whatsapp-clone-5910b": {
+      "hosting": {
+        "whatsApp-clone": [
+          "whatsapp-clone-5910b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "whatsapp-clone-5910b"
+  }
+}

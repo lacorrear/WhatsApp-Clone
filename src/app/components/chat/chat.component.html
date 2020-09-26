@@ -1,0 +1,76 @@
+<div class="chat">
+  <!-- ---------------------------------------------------- -->
+  <!-- Chat chat__header -->
+  <!-- ---------------------------------------------------- -->
+  <div class="chat__header">
+    <img class="icon" [src]="imageUrl" alt="my icon" />
+
+    <div class="chat__headerInfo">
+      <h3>
+        <b> {{ roomName }} </b>
+      </h3>
+      <!-- See date pipe info in : https://angular.io/api/common/DatePipe -->
+      <p>Last seen at ... {{ lastSeen | date: "LLL dd, y, h:mm a" }}</p>
+    </div>
+
+    <div class="chat__headerRight">
+      <button mat-icon-button>
+        <mat-icon> search </mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="_chatsService.deleteChat(roomId)">
+          <span>Delete Room</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- Chat chat__body -->
+  <!-- ---------------------------------------------------- -->
+  <div class="chat__body">
+    <app-message
+      *ngFor="let message of messages"
+      [userName]="message.name"
+      [message]="message.message"
+      [timestamp]="message.timestamp"
+      [isMymessage]="message.name === userName"
+    ></app-message>
+  </div>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- Chat chat__footer -->
+  <!-- ---------------------------------------------------- -->
+  <div class="chat__footer">
+    <button mat-icon-button>
+      <mat-icon> insert_emoticon </mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon> attach_file </mat-icon>
+    </button>
+    <form
+      #f="ngForm"
+      (ngSubmit)="_chatsService.sendMessage(userName, chatInput.value, roomId)"
+    >
+      <input
+        #chatInput
+        name="input"
+        (keyup.enter)="resetInput()"
+        [(ngModel)]="inputText"
+        type="text"
+        placeholder="Type a message"
+      />
+    </form>
+    <button mat-icon-button>
+      <mat-icon> mic </mat-icon>
+    </button>
+  </div>
+</div>

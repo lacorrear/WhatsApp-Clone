@@ -1,0 +1,79 @@
+.sideBar {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------- */
+/* Header */
+/* --------------------------------------------------------- */
+
+img {
+  height: 40px;
+  border-radius: 50%;
+  /* border: solid 0.5px lightgray; */
+}
+.sideBar__header {
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  padding: 20px;
+  border-right: 1px solid lightgray;
+}
+
+.sidebar__headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 10vw;
+}
+
+#avatarPicture {
+  font-size: 40px !important;
+}
+
+.sidebar__headerRight mat-icon {
+  font-size: 20px !important;
+}
+
+/* --------------------------------------------------------- */
+/* Search box */
+/* --------------------------------------------------------- */
+.sideBar__search {
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  height: 39px;
+  padding: 10px;
+}
+
+.sideBar__searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.sideBar__searchContainer > input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  margin-right: 15px;
+  width: 100%;
+}
+
+.sideBar__searchContainer mat-icon {
+  color: gray;
+  padding: 10px;
+}
+
+/* --------------------------------------------------------- */
+/* Chat Container */
+/* --------------------------------------------------------- */
+.sideBar__chats {
+  flex: 1;
+  background-color: white;
+  overflow: auto; /* auto-Similar to scroll, but it adds scrollbars only when necessary */
+}

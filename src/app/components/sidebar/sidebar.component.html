@@ -1,0 +1,57 @@
+<div class="sideBar">
+  <!-- ---------------------------------------------------- -->
+  <!-- SideBar header -->
+  <!-- ---------------------------------------------------- -->
+  <div class="sideBar__header">
+    <img class="icon" [src]="user.photo" alt="my icon" />
+    <div class="sidebar__headerRight">
+      <button mat-icon-button>
+        <mat-icon> donut_large </mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon> chat </mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="_authService.logout()">
+          <span>LogOut</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- SideBar SearchBox -->
+  <!-- ---------------------------------------------------- -->
+  <div class="sideBar__search">
+    <div class="sideBar__searchContainer">
+      <button mat-icon-button>
+        <mat-icon> search </mat-icon>
+      </button>
+      <input type="text" placeholder="Search or start new chat" />
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- SideBar Chats-->
+  <!-- ---------------------------------------------------- -->
+  <div class="sideBar__chats">
+    <app-sidebar-chat
+      [addNewChat]="true"
+      (click)="_chatsService.createNewChat()"
+    ></app-sidebar-chat>
+    <app-sidebar-chat
+      *ngFor="let room of rooms"
+      [roomName]="room.name"
+      [lastMessage]="room.lastMessage"
+      [routerLink]="['/room/', room.roomIdDb]"
+    ></app-sidebar-chat>
+  </div>
+</div>
